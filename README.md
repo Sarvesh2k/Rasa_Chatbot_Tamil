@@ -3,16 +3,24 @@ This is a chatbot in Tamil language developed with the RasaNLU framework. This p
 
 ## Introduction
 
-Many users struggle to reload through their carrier’s respective online portals. The main reason being difficult to understand English and code words for reload etc. are not familiar. As a solution, I developed this chatbot to facilitate reload requirements for a user. The bot is developed with *Rasa*.
+Many users struggle to recharge their mobile plans through their respective carrier’s online portals. The main reason is the difficulty in understanding English and the unfamiliarity with keywords that are used for the same. To explore a possible solution, I explored designing a bot that can assist users in Tamil. The bot is developed with *RasaNLU* framework.
 
-The bot can reload, cancel last reload, get a refund, get coverage for a particular area etc. in Tamil. Other than that, standard greetings, bot_question and other standard questions can now be asked in Tamil language.
+The bot has the following functionalities:
+- Recharge support for mobile plans
+- Cancel last recharge
+- Get a refund
+- Get coverage for a particular zone (Certain carriers don't provide national mobile coverage)
+- Standard Conversations like greeting, asking simple questions
+All these questions can be asked in Tamil!
 
-Because the actual backend implementation is not possible (that is not a requirement), I have added outputs based on some randomness. So, for example, reload might be successful or unsuccessful depends on a random True/False result. The actions depend on random execution for most of such user queries so all the outcomes could be emulated.
+As I am only interested in the implementation of the dialogue flow and modelling the chatbot, I didn't focus on the backend system of the recharge portal. So, to simulate conditions where users face technical difficultes, I have added some randomness in the output. For example, a mobile recharge might be successful or unsuccessful which depends on a random True/False result.
 
-### Issues I faced during development
+If time persists, I might also add a working backend in the a future iteration 😄
 
-1.	Rasa could not detect certain numbers in a statement.
-      1. With default pipeline, Rasa could not detect phone number.
+### Issues Faced during Development
+
+1.	Rasa would not detect certain numbers in a statement.
+      1. With default pipeline, Rasa could not detect phone number at times.
       2. But it detected account number and amount correctly.
       2. So, I played a little bot with the pipeline and switched to *RegexEntityExtractor*. It was worse. It detected numbers but did not correctly identify them as correct entities. For example, an *account number* is wrongly slotted into *phone number*.
       2. So as an ultimate solution, I have changed regex for *phone*, *account*, and *amount* (Initially there was no regex, I just gave some examples for Rasa to identify correct slots itself) and replaced *RegexEntityExtractor* with *RegexFeaturizer*.
