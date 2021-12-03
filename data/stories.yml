@@ -1,0 +1,95 @@
+version: "2.0"
+
+stories:
+
+  # standard greet
+  - story: happy path
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: mood_great
+      - action: utter_happy
+
+  - story: sad path 1
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: mood_unhappy
+      - action: utter_cheer_up
+      - action: utter_did_that_help
+      - intent: affirm
+      - action: utter_happy
+
+  - story: sad path 2
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: mood_unhappy
+      - action: utter_cheer_up
+      - action: utter_did_that_help
+      - intent: deny
+      - action: utter_goodbye
+
+  # reload complete scenario
+  - story: reload 1
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: reload
+      - action: utter_request_phone_number
+      - intent: say_phone_number
+      - action: utter_request_account_number
+      - intent: say_account_number
+      - action: utter_request_amount
+      - intent: say_amount
+      - action: action_reload
+
+  # reload concise scenario
+  - story: reload 2
+    steps:
+      - intent: reload
+      - action: utter_request_phone_number
+      - intent: say_phone_number
+      - action: utter_request_account_number
+      - intent: say_account_number
+      - action: utter_request_amount
+      - intent: say_amount
+      - action: action_reload
+
+  # cancel reload concise scenario
+  - story: cancel reload
+    steps:
+      - intent: cancel_last_reload
+      - action: action_cancel_reload
+
+  # cancel reload complete scenario
+  - story: cancel reload 2
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: cancel_last_reload
+      - action: action_cancel_reload
+
+  # do a refund to user complete scenario
+  - story: do refund 2
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: refund
+      - action: action_refund
+
+  # do a refund to user concise scenario
+  - story: do refund
+    steps:
+      - intent: refund
+      - action: action_refund
+
+  # tells the coverage for a particular area
+  - story: find coverage
+    steps:
+      - intent: what_coverage
+      - action: utter_ask_province
+      - intent: tell_province
+      - action: utter_ask_district
+      - intent: tell_district
+      - action: action_tell_coverage
