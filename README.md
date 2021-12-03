@@ -11,23 +11,26 @@ The bot has the following functionalities:
 - Get a refund
 - Get coverage for a particular zone (Certain carriers don't provide national mobile coverage)
 - Standard Conversations like greeting, asking simple questions
+
 All these questions can be asked in Tamil!
 
 As I am only interested in the implementation of the dialogue flow and modelling the chatbot, I didn't focus on the backend system of the recharge portal. So, to simulate conditions where users face technical difficultes, I have added some randomness in the output. For example, a mobile recharge might be successful or unsuccessful which depends on a random True/False result.
 
 If time persists, I might also add a working backend in the a future iteration 😄
 
-### Issues Faced during Development
+## Issues Faced during Development
 
 1.	Rasa would not detect certain numbers in a statement.
-      1. With default pipeline, Rasa could not detect phone number at times.
-      2. But it detected account number and amount correctly.
-      2. So, I played a little bot with the pipeline and switched to *RegexEntityExtractor*. It was worse. It detected numbers but did not correctly identify them as correct entities. For example, an *account number* is wrongly slotted into *phone number*.
-      2. So as an ultimate solution, I have changed regex for *phone*, *account*, and *amount* (Initially there was no regex, I just gave some examples for Rasa to identify correct slots itself) and replaced *RegexEntityExtractor* with *RegexFeaturizer*.
-      2. It works now, however in forums they said the inconsistencies in training is common, and sometimes it might not work well.
+      1. With the default pipeline, Rasa could not detect phone number at times.
+      2. However, it detected account number and amount correctly.
+      2. Hence, I fiddled a little with the pipeline and switched to *RegexEntityExtractor*. But this time, it detected numbers but did not correctly identify them as entities. For example, *account number* gets wrongly classified as *phone number*.
+      2. As a workaround for this, I changed regex for *phone*, *account*, and *amount* (Initially there was no regex, so I gave some examples to Rasa to identify correct slots) and replaced *RegexEntityExtractor* with *RegexFeaturizer*.
+      2. It works now, although with some uncertainties. However, after a little digging around in the Rasa forums, they said the inconsistencies in training is common.
 
 2.	Sometimes slots are forgotten.
-      a.	The culprit is the *MemoizationPolicy*. I changed history to 7 and now it works.
-      b.	Also, for *TEDPolicy*, the epochs to train are increased to 200
+      1. The fault lied in the *MemoizationPolicy*. After chaning the history to 7, it works now.
+      2. For *TEDPolicy*, the epochs to train have been increased to 200.
+
+## Working of Code
 
 Also, I have utilized most of Rasa’s core concepts such as *rules*, *actions*, *NLU* and *domain*. Some new things such as *SlotSet* took some time to work out, but eventually I got through it. I have added enough in-code comments to project as well.
