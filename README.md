@@ -33,4 +33,9 @@ If time persists, I might also add a working backend in the a future iteration ð
 
 ## Working of Code
 
-Also, I have utilized most of Rasaâ€™s core concepts such as *rules*, *actions*, *NLU* and *domain*. Some new things such as *SlotSet* took some time to work out, but eventually I got through it. I have added enough in-code comments to project as well.
+I have tried my best to explain most of the terminologies and working of the various parts of the code. This can be found in the `Documentation.pdf` file in the repository.
+
+## References
+
+- The [RasaNLU Documenation](https://rasa.com/docs/rasa/) - A go-to source for understanding the nitty-gritty of open source Rasa
+- The [Rasa Community Forum](https://forum.rasa.com/) - Cleared my doubts on many occasions, especially for the regional language support.
