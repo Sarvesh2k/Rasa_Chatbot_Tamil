@@ -15,7 +15,6 @@ Because the actual backend implementation is not possible (that is not a require
       1. With default pipeline, Rasa could not detect phone number.
       2. But it detected account number and amount correctly.
       2. So, I played a little bot with the pipeline and switched to *RegexEntityExtractor*. It was worse. It detected numbers but did not correctly identify them as correct entities. For example, an *account number* is wrongly slotted into *phone number*.
-      2. I have asked the problem in stack overflow, (https://stackoverflow.com/q/69626455/10582056), but no answer
       2. So as an ultimate solution, I have changed regex for *phone*, *account*, and *amount* (Initially there was no regex, I just gave some examples for Rasa to identify correct slots itself) and replaced *RegexEntityExtractor* with *RegexFeaturizer*.
       2. It works now, however in forums they said the inconsistencies in training is common, and sometimes it might not work well.
 
