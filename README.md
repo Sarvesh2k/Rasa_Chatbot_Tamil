@@ -1,7 +1,7 @@
-# chatbot-tamil-rasa
-This is a chatbot in Tamil language developed with Rasa
+# Rasa Chatbot in Tamil
+This is a chatbot in Tamil language developed with the RasaNLU framework. This project was undertaken to understand the concepts of Natural Language Understanding and explore the possibilites of regional language support for customer support bots.
 
-### Introduction
+## Introduction
 
 Many users struggle to reload through their carrier’s respective online portals. The main reason being difficult to understand English and code words for reload etc. are not familiar. As a solution, I developed this chatbot to facilitate reload requirements for a user. The bot is developed with *Rasa*.
 
