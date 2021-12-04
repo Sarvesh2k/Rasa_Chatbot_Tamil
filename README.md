@@ -31,7 +31,7 @@ If time persists, I might also add a working backend in the a future iteration ð
       1. The fault lied in the *MemoizationPolicy*. After chaning the history to 7, it works now.
       2. For *TEDPolicy*, the epochs to train have been increased to 200.
 
-## Working of Code
+## Working of the Code
 
 I have tried my best to explain most of the terminologies and working of the various parts of the code. This can be found in the `Documentation.pdf` file in the repository.
 
